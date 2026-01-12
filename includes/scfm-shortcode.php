@@ -1,5 +1,9 @@
 <?php
 
+if(!defined('ABSPATH')) {
+    exit;
+}
+
 class Scfm_shortcode{
     public function __construct(){
         add_shortcode('rander_simple_contact_form', [$this, 'simple_contact_form']);
