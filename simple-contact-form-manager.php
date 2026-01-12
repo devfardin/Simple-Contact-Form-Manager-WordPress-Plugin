@@ -5,7 +5,7 @@
  * Tags: Contact From, Simple Contact Form
  * Plugin URI: https://simple-contact-form-management.com
  * Version: 1.0.0
- * Author Name: Fardin
+ * Author: Fardin Ahmed
  * Author URI: https://github.com/devfardin
  * Text Domain: scfm
  */
