@@ -20,9 +20,9 @@ class Scfm_form_handler
             ));
         }
 
-        $name = $form_values['name'];
-        $email = $form_values['email'];
-        $message = $form_values['message'];
+        $name = sanitize_text_field($form_values['name']);
+        $email = sanitize_email($form_values['email']);
+        $message = sanitize_textarea_field($form_values['message']);
 
         if (empty($name)) {
             wp_send_json_error(array(
@@ -39,6 +39,7 @@ class Scfm_form_handler
                 'message' => 'Message is required. Please enter your message.',
             ));
         }
+
 
     }
 }
