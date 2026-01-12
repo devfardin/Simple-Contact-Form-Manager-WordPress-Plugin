@@ -1,6 +1,6 @@
 <!-- SCFM - Form -->
 <div class="scfm-container">
-    <form id="scfm-form">
+    <form id="scfm-form" method="post">
         <div class="scfm-input_wrap">
             <label for="name">
                 Enter Name
@@ -15,6 +15,6 @@
             <label for="message">Your Message</label>
             <textarea name="message" id="message" rows="5" cols="5"></textarea>
         </div>
-        <input type="button" value="Submit">
+        <input type="submit" value="Submit">
     </form>
 </div>

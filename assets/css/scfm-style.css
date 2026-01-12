@@ -98,7 +98,7 @@
 }
 
 /* Submit button */
-#scfm-form input[type="button"] {
+#scfm-form input[type="submit"] {
     padding: 14px 36px;
     border-radius: 999px;
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -117,13 +117,13 @@
 }
 
 /* Button hover */
-#scfm-form input[type="button"]:hover {
+#scfm-form input[type="submit"]:hover {
     transform: translateY(-2px);
     box-shadow: 0 18px 40px rgba(37, 99, 235, 0.55);
 }
 
 /* Button active */
-#scfm-form input[type="button"]:active {
+#scfm-form input[type="submit"]:active {
     transform: translateY(0);
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
 }
