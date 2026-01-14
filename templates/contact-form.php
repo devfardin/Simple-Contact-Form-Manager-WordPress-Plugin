@@ -1,3 +1,10 @@
+<?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+?>
+
 <!-- SCFM - Form -->
 <div class="scfm-container">
     <form id="scfm-form" method="post">

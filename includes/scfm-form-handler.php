@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 // Form handler
 class Scfm_form_handler
 {
@@ -39,7 +43,22 @@ class Scfm_form_handler
                 'message' => 'Message is required. Please enter your message.',
             ));
         }
-
-
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'scfm_messages';
+        $query = $wpdb->insert($table_name, array(
+            'name' => $name,
+            'email' => $email,
+            'message' => $message,
+        ));
+        if($query){
+            wp_send_json_success(array(
+                'message'=> 'Form Submited Successfully',
+            ));
+        } else {
+            wp_send_json_error([
+                'message' => 'Failed to save data. Please try again later.',
+                'error' => $wpdb->last_error, // shows DB error if any
+            ]);
+        }
     }
 }
