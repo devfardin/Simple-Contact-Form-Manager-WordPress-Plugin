@@ -16,7 +16,6 @@ class Scfm_form_handler
     {
         parse_str($_REQUEST['form_data'], $form_values);
 
-
         // Nonce Validation
         if (!wp_verify_nonce($_REQUEST['nonce'], 'nonce_created')) {
             wp_send_json_error(array(

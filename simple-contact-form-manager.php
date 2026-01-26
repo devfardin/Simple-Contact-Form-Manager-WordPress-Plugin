@@ -17,8 +17,11 @@ if (!defined(("ABSPATH"))) {
 if (!defined('SCFM_PLUGIN_ASSEST_URI')) {
     define('SCFM_PLUGIN_ASSEST_URI', plugin_dir_url(__FILE__) . 'assets/');
 }
-if (!defined('SCFM_PLUGIN_PATH')) {
-    define('SCFM_PLUGIN_PATH', plugin_dir_path(__FILE__) . 'includes/');
+if (!defined('SCFM_PLUGIN_INCLUDES_PATH')) {
+    define('SCFM_PLUGIN_INCLUDES_PATH', plugin_dir_path(__FILE__) . 'includes/');
+}
+if (!defined('SCFM_PLUGIN_TEMPLATES_PATH')) {
+    define('SCFM_PLUGIN_TEMPLATES_PATH', plugin_dir_path(__FILE__) . 'templates/');
 }
 if (!defined('SCFM_PLUGIN_VERSION')) {
     define('SCFM_PLUGIN_VERSION', '1.0.0');
@@ -34,10 +37,10 @@ class Simple_contact_form_manager
     }
     public function load_depandancy()
     {
-        include_once(SCFM_PLUGIN_PATH . 'scfm-shortcode.php');
-        include_once(SCFM_PLUGIN_PATH . 'scfm-enqueue.php');
-        include_once(SCFM_PLUGIN_PATH . 'scfm-form-handler.php');
-        include_once(SCFM_PLUGIN_PATH . 'scfm-admin-page.php');
+        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-shortcode.php');
+        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-enqueue.php');
+        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-form-handler.php');
+        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-admin-page.php');
 
     }
     public function init()
@@ -53,7 +56,7 @@ class Simple_contact_form_manager
     }
     public function scfm_activation_hook()
     {
-        include_once(SCFM_PLUGIN_PATH . 'scfm-activator.php');
+        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-activator.php');
          $db = new Scfm_activator();
         $db->scfm_create_database();
     }

@@ -24,6 +24,8 @@ jQuery(document).ready(function($){
                             color: '#75866E',
                         },
                     }).showToast();
+                    $('#scfm-form')[0].reset();
+                    
                     
                 } else{
                         Toastify({

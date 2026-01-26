@@ -24,7 +24,7 @@ class Scfm_admin_page
 
 
         function scfm_rander_messages_page(){
-        	
+        	require SCFM_PLUGIN_TEMPLATES_PATH . 'admin-messages.php';
     }
     }
     
