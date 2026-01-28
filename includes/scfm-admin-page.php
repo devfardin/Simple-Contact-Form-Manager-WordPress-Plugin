@@ -1,13 +1,13 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit;
 }
 class Scfm_admin_page
 {
     public function __construct()
     {
-       add_action('admin_menu', [$this, 'scfm_register_admin_menu']);
+        add_action('admin_menu', [$this, 'scfm_register_admin_menu']);
 
     }
     public function scfm_register_admin_menu()
@@ -17,16 +17,15 @@ class Scfm_admin_page
             'Contact Messages',
             'manage_options',
             'scfm-messages',
-            'scfm_rander_messages_page',
+            [$this, 'scfm_rander_messages_page'],
             'dashicons-email',
             26
         );
 
 
-        function scfm_rander_messages_page(){
-        	require SCFM_PLUGIN_TEMPLATES_PATH . 'admin-messages.php';
+        function scfm_rander_messages_page()
+        {
+            require SCFM_PLUGIN_TEMPLATES_PATH . 'admin-messages.php';
+        }
     }
-    }
-    
-
 }

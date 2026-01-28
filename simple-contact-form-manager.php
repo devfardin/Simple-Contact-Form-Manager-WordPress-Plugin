@@ -41,6 +41,7 @@ class Simple_contact_form_manager
         include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-enqueue.php');
         include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-form-handler.php');
         include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-admin-page.php');
+        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'database.php');
 
     }
     public function init()
@@ -56,9 +57,9 @@ class Simple_contact_form_manager
     }
     public function scfm_activation_hook()
     {
-        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-activator.php');
-         $db = new Scfm_activator();
-        $db->scfm_create_database();
+        $database = new Basic_Contact_Form_Database();
+        $database->create_table();
+
     }
 }
 new Simple_contact_form_manager();

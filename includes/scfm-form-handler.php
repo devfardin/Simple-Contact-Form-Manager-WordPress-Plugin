@@ -25,6 +25,7 @@ class Scfm_form_handler
 
         $name = sanitize_text_field($form_values['name']);
         $email = sanitize_email($form_values['email']);
+        $subject = sanitize_text_field($form_values['subject']);
         $message = sanitize_textarea_field($form_values['message']);
 
         if (empty($name)) {
@@ -37,6 +38,11 @@ class Scfm_form_handler
                 'message' => 'Email is required. Please enter your email address.',
             ));
         }
+        // if (empty($subject)) {
+        //     wp_send_json_error(array(
+        //         'message' => 'Subject is required. Please enter your email address.',
+        //     ));
+        // }
         if (empty($message)) {
             wp_send_json_error(array(
                 'message' => 'Message is required. Please enter your message.',
@@ -49,6 +55,7 @@ class Scfm_form_handler
             'email' => $email,
             'message' => $message,
         ));
+
         if($query){
             wp_send_json_success(array(
                 'message'=> 'Form Submited Successfully',

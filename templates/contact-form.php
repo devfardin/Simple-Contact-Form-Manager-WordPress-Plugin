@@ -18,6 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
             <label for="email">Email Address</label>
             <input type="email" name="email" id="email">
         </div>
+        <!-- <div class="scfm-input_wrap">
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject">
+        </div> -->
         <div class="scfm-input_wrap">
             <label for="message">Your Message</label>
             <textarea name="message" id="message" rows="5" cols="5"></textarea>
