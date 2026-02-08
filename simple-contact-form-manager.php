@@ -31,17 +31,18 @@ class Simple_contact_form_manager
 {
     public function __construct()
     {
+        register_activation_hook(__FILE__, [$this, 'activate']);
         $this->load_depandancy();
         $this->init();
-        $this->Scfm_Activator();
+
     }
     public function load_depandancy()
     {
         include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-shortcode.php');
         include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-enqueue.php');
         include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-form-handler.php');
-        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-admin-page.php');
-        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'database.php');
+        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-admin-menu.php');
+        include_once(SCFM_PLUGIN_INCLUDES_PATH . 'scfm-database.php');
 
     }
     public function init()
@@ -51,15 +52,10 @@ class Simple_contact_form_manager
         new Scfm_form_handler();
         new scfm_admin_page();
     }
-    public function Scfm_Activator()
-    {
-        register_activation_hook(__FILE__, [$this, 'scfm_activation_hook']);
-    }
-    public function scfm_activation_hook()
-    {
+    function activate(){
         $database = new Basic_Contact_Form_Database();
         $database->create_table();
-
     }
+   
 }
 new Simple_contact_form_manager();

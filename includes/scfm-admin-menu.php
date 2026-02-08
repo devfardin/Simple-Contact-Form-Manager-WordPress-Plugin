@@ -13,19 +13,22 @@ class Scfm_admin_page
     public function scfm_register_admin_menu()
     {
         add_menu_page(
-            'Contact Messages',
-            'Contact Messages',
+            'Contact Submissions',
+            'Contact Forms',
             'manage_options',
-            'scfm-messages',
-            [$this, 'scfm_rander_messages_page'],
-            'dashicons-email',
+            'basic-contact-submissions',
+            'scfm_rander_messages_page',
+            'dashicons-feedback',
             26
         );
 
 
         function scfm_rander_messages_page()
         {
-            require SCFM_PLUGIN_TEMPLATES_PATH . 'admin-messages.php';
+           require_once SCFM_PLUGIN_INCLUDES_PATH . 'scfm-admin.php';
+           $admin = new Basic_Contact_Form_Admin();
+           $admin->display_submissions_page();
         }
     }
 }
+
